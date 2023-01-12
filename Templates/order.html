@@ -1,0 +1,50 @@
+{% extends "base.html" %} {% block title %} Order Page{% endblock %} {% block
+content %}
+<style>
+  table {
+    font-size: 2.5vh;
+  }
+
+  .container {
+    display: flex;
+  }
+  .right {
+    flex: 1;
+  }
+  .left {
+    flex: 1;
+  }
+</style>
+<h1 style="margin-top: 1.5vh">Order Page</h1>
+{% with messages = get_flashed_messages() %} {% if messages %} {% for msg in
+messages %}
+<p style="color: red">{{msg}}</p>
+{% endfor %} {% endif %} {% endwith %}
+<form action="#" method="post">
+  <p style="font-size: 5vh">請貼上Line訊息喔！</p>
+  <div class="container">
+    <div class="left">
+      <textarea name="order" rows="11" cols="50" required></textarea>
+      <p><input type="submit" value="submit" /></p>
+    </div>
+    <div class="right">
+      "親愛的消費者您好，以下為本次「...活動...」之訂購訊息格式，請依照下列順序幫我們填寫資訊喔！(請務必按照下列表格，以免訂單出錯喔！)
+      <p>【姓名】：</p>
+      <p>【電話】：</p>
+      <p>【地址】：</p>
+      <p>【品項與數量】：</p>
+      <p>【備註】：</p>
+      <div>
+        <p>付款訊息格式</p>
+        <p>【姓名】：</p>
+        <p>【電話】：</p>
+        <p>【銀行名稱】：</p>
+        <p>【轉帳末五碼】：</p>
+        <p>【轉帳金額(元)】：</p>
+        <p>【備註】：</p>
+      </div>
+    </div>
+  </div>
+</form>
+{% for table in tables %} {{titles[loop.index]}} {{ table|safe }} {% endfor %}
+{% endblock %}

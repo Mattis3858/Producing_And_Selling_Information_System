@@ -1,0 +1,17 @@
+{% extends "base.html" %} {% block title %}Home Page {% endblock %} {% block
+content %} {% with messages = get_flashed_messages() %} {% if messages %} {% for
+msg in messages %}
+<p>{{msg}}</p>
+{% endfor %} {% endif %} {% endwith %}
+<h1 style="margin-top: 1.5vh">Sales Statistics Graph</h1>
+<div align="center">
+  <table>
+    <h1>
+      <!--Displaying the converted table-->
+      {% for table in tables %}
+      <h2>{{titles[loop.index]}}</h2>
+      {{ table|safe }} {% endfor %}
+    </h1>
+  </table>
+</div>
+{% endblock %}

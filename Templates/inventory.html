@@ -1,0 +1,44 @@
+{% extends "base.html" %} {% block title %}Inventory {% endblock %} {% block
+content %}
+<style>
+  .container {
+    display: flex;
+  }
+  .right {
+    flex: 1;
+  }
+  .left {
+    flex: 0.5;
+  }
+</style>
+
+<h1 style="margin-top: 1.5vh">Inventory</h1>
+<div class="container">
+  <form action="#" method="post" class="left">
+    <p>蘋果乾</p>
+    <p><input type="text" name="apple_inventory" /></p>
+    <p>蘋果禮盒</p>
+    <p><input type="text" name="apple_box_inventory" /></p>
+    <p>芒果乾</p>
+    <p><input type="text" name="mango_inventory" /></p>
+    <p>水蜜桃乾</p>
+    <p><input type="text" name="peach_inventory" /></p>
+    <p>水蜜桃籽乾</p>
+    <p><input type="text" name="peach_seed_inventory" /></p>
+    <input type="submit" value="submit" />
+  </form>
+  <div class="right">
+    <table>
+      <h1>
+        <!--Displaying the converted table-->
+        {% for table in tables %}
+        <h2>{{titles[loop.index]}}</h2>
+        {{ table|safe }} {% endfor %}
+      </h1>
+    </table>
+  </div>
+</div>
+{% with messages = get_flashed_messages() %} {% if messages %} {% for msg in
+messages %}
+<p>{{msg}}</p>
+{% endfor %} {% endif %} {% endwith %} {% endblock %}

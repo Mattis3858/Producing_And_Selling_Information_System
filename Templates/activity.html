@@ -1,0 +1,69 @@
+{% extends "base.html" %} {% block title %}Activities Page {% endblock %} {%
+block content %}
+<h1 style="margin-top: 1.5vh">Setting Activities</h1>
+<style>
+  input.largeCheckBox {
+    width: 25px;
+    height: 25px;
+  }
+</style>
+{% with messages = get_flashed_messages() %} {% if messages %} {% for msg in
+messages %}
+<p>{{msg}}</p>
+{% endfor %} {% endif %} {% endwith %}
+<form action="#" method="post">
+  <p>請輸入除品項之外，需要有的任何欄位：(請以英文逗號分隔)</p>
+  <textarea name="other" rows="1" cols="50">姓名,電話,備註</textarea>
+  <p style="margin-top: 3vh">輸入本次訂購活動編號:</p>
+  <textarea name="actID" rows="1" cols="50"></textarea>
+  <p style="margin-top: 3vh">請輸入本次活動品項：</p>
+  <div>
+    <input type="checkbox" name="apple" class="largeCheckBox" />果乾<br />
+    <input
+      type="checkbox"
+      name="apple"
+      class="largeCheckBox"
+      style="font-size: 5vh"
+    />蘋果乾(包)
+    <input
+      type="text"
+      name="apple_price"
+      style="width: 10vh; height: 4.5vh"
+    />元<br />
+    <input type="checkbox" name="apple_box" class="largeCheckBox" />蘋果禮盒(盒)
+    <input
+      type="text"
+      name="apple_box_price"
+      style="width: 10vh; height: 4.5vh"
+      value=""
+    />元<br />
+    <input type="checkbox" name="mango" class="largeCheckBox" />芒果乾(包)
+    <input
+      type="text"
+      name="mango_price"
+      style="width: 10vh; height: 4.5vh"
+      value=""
+    />元<br />
+    <input
+      type="checkbox"
+      name="peach_seed"
+      class="largeCheckBox"
+    />水蜜桃籽乾(包)
+    <input
+      type="text"
+      name="peach_seed_price"
+      style="width: 10vh; height: 4.5vh"
+      value=""
+    />元<br />
+    <input type="checkbox" name="peach" class="largeCheckBox" />水蜜桃果肉乾(包)
+    <input
+      type="text"
+      name="peach_price"
+      style="width: 10vh; height: 4.5vh"
+      value=""
+    />元<br />
+  </div>
+  <p style="margin-top: 3vh"><input type="submit" value="submit" /></p>
+</form>
+{% for table in tables %} {{titles[loop.index]}} {{ table|safe }} {% endfor %}
+{% endblock %}
