@@ -10,7 +10,7 @@ from ArticutAPI import Articut
 
 app = Flask(__name__)
 app.secret_key = 'hello'
-# app.permanent_session_lifetime = timedelta(minutes=60)
+app.permanent_session_lifetime = timedelta(minutes=60)
 # app.permanent_session_lifetime = timedelta(seconds=1)
 
 @app.route("/")
@@ -118,12 +118,11 @@ def order():
             stastics = setting_stastics(item_and_price_columns)#貼在統計頁面 (DF)
         #     session['initial_stastics_dict'] = stastics.to_dict()
         #     stastics = pd.DataFrame(session['initial_stastics_dict'])
-
             
 
         # step3
         line_message_enter_result =  line_message_enter(message, articut, detailed_articut, order_table, item_price_table, item_and_price_columns, customer_df, stastics, inventory_table,'果乾')
-    
+        
         if(len(line_message_enter_result)==2): # 代表輸入訂購訊息
                 # 以下兩個是要顯示出來的
             order_table = line_message_enter_result[0]
