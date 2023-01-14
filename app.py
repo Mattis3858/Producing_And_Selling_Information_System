@@ -171,9 +171,13 @@ def order():
 
 @app.route('/relation')
 def relation():
-    df = pd.DataFrame(session['customer_df_dict'])
+    try:
+        df = pd.DataFrame(session['customer_df_dict'])
 
-    return render_template('customerRelation.html', tables=[df.to_html()], titles=[''])
+        return render_template('customerRelation.html', tables=[df.to_html()], titles=[''])
+    except:
+        flash("Please set up an activity first!!")
+        return redirect(url_for('activity'))
 
 
 
@@ -238,9 +242,13 @@ def activity():
 
 @app.route('/salesStatistics')
 def salesStatistics():
-    df = pd.DataFrame(session['statistics_dict'])
+    try:
+        df = pd.DataFrame(session['statistics_dict'])
 
-    return render_template('salesStatistics.html', tables=[df.to_html()], titles=[''])
+        return render_template('salesStatistics.html', tables=[df.to_html()], titles=[''])
+    except:
+        flash("Please set up an activity first!!")
+        return redirect(url_for('activity'))
 
 @app.route('/inventory', methods=['GET', 'POST'])
 def inventory():
@@ -262,9 +270,13 @@ def inventory():
         session['inventory_edit_message'] = inventory_edit_message_list
         
     
-        df = manual_edit_inventory(pd.DataFrame(session['inventory_table_dict']),  session['inventory_edit_message'], session['item_and_price_columns'])
+        try:
+            df = manual_edit_inventory(pd.DataFrame(session['inventory_table_dict']),  session['inventory_edit_message'], session['item_and_price_columns'])
 
-        return render_template(('inventory.html'), tables=[df.to_html()], titles=[''])
+            return render_template(('inventory.html'), tables=[df.to_html()], titles=[''])
+        except:
+            flash("Please set up an activity first!!")
+            return redirect(url_for('activity'))
     return render_template('inventory.html')
 
 def checkNone(inventory):
