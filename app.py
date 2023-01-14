@@ -176,7 +176,7 @@ def relation():
 
         return render_template('customerRelation.html', tables=[df.to_html()], titles=[''])
     except:
-        flash("Please set up an activity first!!")
+        flash("Please set up an activity or paste an order message first!!")
         return redirect(url_for('activity'))
 
 
@@ -247,7 +247,7 @@ def salesStatistics():
 
         return render_template('salesStatistics.html', tables=[df.to_html()], titles=[''])
     except:
-        flash("Please set up an activity first!!")
+        flash("Please set up an activity or paste an order message first!!")
         return redirect(url_for('activity'))
 
 @app.route('/inventory', methods=['GET', 'POST'])
@@ -275,7 +275,7 @@ def inventory():
 
             return render_template(('inventory.html'), tables=[df.to_html()], titles=[''])
         except:
-            flash("Please set up an activity first!!")
+            flash("Please set up an activity or paste an order message first!!")
             return redirect(url_for('activity'))
     return render_template('inventory.html')
 

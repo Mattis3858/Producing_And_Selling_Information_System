@@ -3,5 +3,19 @@ content %} {% with messages = get_flashed_messages() %} {% if messages %} {% for
 msg in messages %}
 <p>{{msg}}</p>
 {% endfor %} {% endif %} {% endwith %}
-<h1 style="margin-top: 1.5vh">Hello, Welcome to the website</h1>
+<h1 style="margin-top: 1.5vh; color: blue">Hello and Welcome!</h1>
+<p style="font-size: 5vh">
+  This information system is for farmers who don't have too much time to manage
+  their customers and their inventories. After setting up an activity at the
+  <a href="activity">Activity</a> page, using articut, farmers can easily paste
+  the messages they received from <span style="color: chartreuse">Line</span> at
+  the <a href="order">Order</a> page.
+</p>
+<p>1. Set up an activity at <a href="activity">Activity</a></p>
+<p>2. Paste a order message at <a href="order">Order</a></p>
+<p>
+  3. Check out the <a href="relation">Customer relation tables</a>,
+  <a href="salesStatistics">Selling Statistics</a>, and the
+  <a href="inventory">Inventories</a>
+</p>
 {% endblock %}
