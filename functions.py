@@ -5,10 +5,10 @@ from datetime import datetime,timezone,timedelta
 from ArticutAPI import Articut
 from pprint import pprint
 # with open('果乾.json') as f:
-fruit = r'C:\Users\Mattis\OneDrive\桌面\VScode\Producing_And_Selling_Information_System\果乾.json'
+fruit = r'果乾.json'
 
 # with open('KNOWLEDGE_bankTW.json') as f:
-bank = r'C:\Users\Mattis\OneDrive\桌面\VScode\Producing_And_Selling_Information_System\KNOWLEDGE_bankTW.json'
+bank = r'KNOWLEDGE_bankTW.json'
 
 
 username = "wenyeh6@gmail.com" #這裡填入您在 https://api.droidtown.co 使用的帳號 email。若使用空字串，則預設使用每小時 2000 字的公用額度。
